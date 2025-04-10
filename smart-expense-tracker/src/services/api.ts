@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Expense } from '../types/Expense';
 import { Category } from '../types/Category';
 
-const BASE_URL = 'http://localhost:8080/api';
+const BASE_URL = '';
 const LOCAL_EXPENSE_KEY = "local_expenses";
 // 🚀 Expense APIs
 

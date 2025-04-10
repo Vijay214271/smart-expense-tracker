@@ -1,4 +1,5 @@
 com\example\expensetracker\service\CategoryService.class
+com\example\expensetracker\config\WebConfig$1.class
 com\example\expensetracker\ExpensetrackerApplication.class
 com\example\expensetracker\service\ReportService.class
 com\example\expensetracker\repository\ExpenseRepository.class
@@ -6,6 +7,7 @@ com\example\expensetracker\model\Expense$ExpenseBuilder.class
 com\example\expensetracker\controller\CategoryController.class
 com\example\expensetracker\service\AutoCategorizationService.class
 com\example\expensetracker\model\Category$CategoryBuilder.class
+com\example\expensetracker\config\WebConfig.class
 com\example\expensetracker\model\Category.class
 com\example\expensetracker\controller\ExpenseController.class
 com\example\expensetracker\repository\CategoryRepository.class
