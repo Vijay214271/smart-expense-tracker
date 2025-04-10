@@ -46,7 +46,7 @@ smart-expense-tracker/
 
 ### Backend:
 - Spring Boot
-- MySQL
+- H2
 - JPA / Hibernate
 - CORS Configuration
 - Render for deployment
