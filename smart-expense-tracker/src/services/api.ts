@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Expense } from '../types/Expense';
 import { Category } from '../types/Category';
 
-const BASE_URL = '';
+const BASE_URL = import.meta.env.API_URL || 'https://smart-expense-tracker-qizk.onrender.com';
 const LOCAL_EXPENSE_KEY = "local_expenses";
 // 🚀 Expense APIs
 
