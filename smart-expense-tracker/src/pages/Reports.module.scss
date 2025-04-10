@@ -1,0 +1,43 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  
+  .heading {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #1e293b; // slate-800
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+  }
+  
+  .description {
+    color: #475569; // slate-600
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-inline: auto;
+  }
+  
+  .downloadSection {
+    margin-bottom: 3rem;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
