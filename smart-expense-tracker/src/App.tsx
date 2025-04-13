@@ -14,7 +14,7 @@ const App = () => {
     <Router>
       <OfflineBanner />
       <Navbar />
-      <div style={{ paddingTop: '100px' }}>
+      <div style={{ paddingTop: '0px' }}>
         {/* 👆 Add padding to avoid hiding under fixed navbar */}
         <ToastContainer position="bottom-center" autoClose={2000} />
         <Routes>
