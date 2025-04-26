@@ -27,7 +27,7 @@ const syncLoadAfterDelete = (id: number) => {
 
 export const getAllExpenses = async () => {
   try {
-    const response = await axios.get<Expense[]>(`${BASE_URL}/expenses`);
+    const response = await axios.get<Expense[]>(`${BASE_URL}/api/expenses`);
     saveLocalExpense(response.data);
     return response;
   }
@@ -37,18 +37,18 @@ export const getAllExpenses = async () => {
 }
 
 export const getExpensesInRange = (start: string, end: string) =>
-  axios.get<Expense[]>(`${BASE_URL}/expenses/range`, {
+  axios.get<Expense[]>(`${BASE_URL}/api/expenses/range`, {
     params: { start, end },
   });
 
 export const getExpensesByCategory = (name: string) =>
-  axios.get<Expense[]>(`${BASE_URL}/expenses/category`, {
+  axios.get<Expense[]>(`${BASE_URL}/api/expenses/category`, {
     params: { name },
   });
 
 export const createExpense = async (expense: Expense) => {
 try {
-  const response = await axios.post<Expense>(`${BASE_URL}/expenses`, expense);
+  const response = await axios.post<Expense>(`${BASE_URL}/api/expenses`, expense);
   syncLoadAfterAdd(response.data);
   return response;
 }
@@ -61,7 +61,7 @@ catch(err) {
 
 export const deleteExpense = async (id: number) => {
   try {
-    await axios.delete(`${BASE_URL}/expenses/${id}`);
+    await axios.delete(`${BASE_URL}/api/expenses/${id}`);
     syncLoadAfterDelete(id);
   } catch {
     // Fallback to local delete
@@ -76,13 +76,13 @@ export const downloadExpenseReportPDF = () =>
 
 export const resetBackendData = () => {
   localStorage.removeItem(LOCAL_EXPENSE_KEY);
-  return axios.delete(`${BASE_URL}/expenses/reset`)
+  return axios.delete(`${BASE_URL}/api/expenses/reset`)
 }
 
 // 📦 Category APIs
 
 export const getAllCategories = () =>
-  axios.get<Category[]>(`${BASE_URL}/categories`);
+  axios.get<Category[]>(`${BASE_URL}/api/categories`);
 
 export const addCategory = (category: Category) =>
-  axios.post<Category>(`${BASE_URL}/categories`, category);
+  axios.post<Category>(`${BASE_URL}/api/categories`, category);
