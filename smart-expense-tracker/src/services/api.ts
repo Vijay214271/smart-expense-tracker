@@ -70,7 +70,7 @@ export const deleteExpense = async (id: number) => {
 }
 
 export const downloadExpenseReportPDF = () =>
-  axios.get(`${BASE_URL}/expenses/pdf`, {
+  axios.get(`${BASE_URL}/api/expenses/pdf`, {
     responseType: 'blob',
   });
 
