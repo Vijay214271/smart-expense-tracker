@@ -6,7 +6,7 @@ const OfflineBanner = () => {
   useEffect(() => {
     const ping = async () => {
       try {
-        await fetch('http://localhost:8080/api/categories');
+        await fetch('https://smart-expense-tracker-qizk.onrender.com/api/categories');
         setOffline(false);
       } catch {
         setOffline(true);
