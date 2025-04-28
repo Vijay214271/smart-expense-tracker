@@ -48,7 +48,7 @@ export const getExpensesByCategory = (name: string) =>
 
 export const createExpense = async (expense: Expense) => {
 try {
-  const response = await axios.post<Expense>(`${BASE_URL}/expenses`, expense);
+  const response = await axios.post<Expense>(`${BASE_URL}/api/expenses`, expense);
   syncLoadAfterAdd(response.data);
   return response;
 }
