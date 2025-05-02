@@ -1,16 +1,25 @@
 package com.example.expensetracker.controller;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.example.expensetracker.model.Expense;
 import com.example.expensetracker.service.ExpenseService;
 import com.example.expensetracker.service.ReportService;
 
 import jakarta.servlet.http.HttpServletResponse;
-
-import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
-import java.time.LocalDate;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/expenses")
@@ -25,9 +34,15 @@ public class ExpenseController {
     }
 
     @PostMapping
-    public Expense create(@RequestBody Expense expense) {
-        return service.save(expense);
+public ResponseEntity<?> create(@RequestBody Expense expense) {
+    if (expense.getDate().isAfter(LocalDate.now())) {
+        return ResponseEntity.badRequest().body("Expense date cannot be in the future.");
     }
+
+    Expense saved = service.save(expense);
+    return ResponseEntity.ok(saved);
+}
+
 
     @GetMapping
     public List<Expense> getAll() {

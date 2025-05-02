@@ -40,6 +40,18 @@
   animation: fadeInUp 0.5s ease-in-out;
 }
 
+.errorMsg {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #fee2e2;
+  border-left: 6px solid #dc2626;
+  color: #7f1d1d;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  text-align: center;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

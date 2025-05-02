@@ -1,11 +1,12 @@
 package com.example.expensetracker.service;
 
-import com.example.expensetracker.model.Expense;
-import com.example.expensetracker.repository.ExpenseRepository;
-import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.example.expensetracker.model.Expense;
+import com.example.expensetracker.repository.ExpenseRepository;
 
 @Service
 public class ExpenseService {
@@ -19,12 +20,20 @@ public class ExpenseService {
     }
 
     public Expense save(Expense expense) {
+        // Prevent future dates
+        if (expense.getDate().isAfter(LocalDate.now())) {
+            throw new IllegalArgumentException("Expense date cannot be in the future.");
+        }
+    
+        // Auto-categorize if needed
         if (expense.getCategory() == null || expense.getCategory().isBlank()) {
             String category = categorizationService.categorize(expense.getTitle(), expense.getNotes());
             expense.setCategory(category);
         }
+    
         return repository.save(expense);
     }
+    
 
     public List<Expense> getAll() {
         return repository.findAll();
